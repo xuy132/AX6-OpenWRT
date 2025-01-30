@@ -26,7 +26,7 @@ git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/l
 #git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go package/ddnsgo
 
 # MosDNS
-git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
+#git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
 
 #git clone --depth 1 https://github.com/sbwml/luci-app-alist package/alist
 #git clone --depth=1  https://github.com/kenzok8/small-package package/small-package
@@ -36,11 +36,26 @@ git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mo
 #git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-socat
 
 # 添加额外插件
-git clone --depth 1 https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
+
+echo >> feeds.conf.default
+echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
+echo 'src-git autotimeset  https://github.com/sirpdboy/luci-app-autotimeset;master' >> feeds.conf.default
+
+./scripts/feeds update istore
+./scripts/feeds install -d y -p istore luci-app-store
+# 更新feeds，并安装主题：
+./scripts/feeds update autotimeset
+./scripts/feeds install luci-app-autotimeset
+
+
+
+
+
+#git clone --depth 1 https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
 
 # iStore
-git_sparse_clone main https://github.com/linkease/istore-ui app-store-ui
-git_sparse_clone main https://github.com/linkease/istore luci
+#git_sparse_clone main https://github.com/linkease/istore-ui app-store-ui
+#git_sparse_clone main https://github.com/linkease/istore luci
 
 # 替换luci-app-openvpn-server imm源的启动不了服务！
 #rm -rf feeds/luci/applications/luci-app-openvpn-server
@@ -83,5 +98,4 @@ sed -i "s/${orig_version}/R${date_version} by Haiibo/g" package/lean/default-set
 
 
 
-./scripts/feeds update -a
-./scripts/feeds install -a
+
