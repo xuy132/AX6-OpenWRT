@@ -162,7 +162,7 @@ jobs:
         tag: AX6_NSS_${{ env.CURRENT_DATE }}
         artifacts: upload/*
         allowUpdates: true
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GIT_TOKEN }}
         body: |
           基于VIKINGYFY合并的immortalwrt构建
           首次使用建议全新刷写
@@ -175,7 +175,7 @@ jobs:
     - name: Delete old releases
       uses: dev-drprasad/delete-older-releases@master
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
       with:
         keep_latest: 10
         delete_tags : true
