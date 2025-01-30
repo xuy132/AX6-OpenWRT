@@ -20,11 +20,13 @@ function git_sparse_clone() {
 #添加科学上网源
 #git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
 #git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
-git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go package/ddnsgo
-git clone --depth 1 https://github.com/sbwml/luci-app-mosdns package/mosdns
+#git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go package/ddnsgo
 
+# MosDNS
+git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
 
 #git clone --depth 1 https://github.com/sbwml/luci-app-alist package/alist
 #git clone --depth=1  https://github.com/kenzok8/small-package package/small-package
@@ -68,8 +70,18 @@ rm -rf feeds/luci/applications/luci-app-argon-config
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
 #修改主机名
-#sed -i "s/hostname='ImmortalWrt'/hostname='Redmi-AX6'/g" package/base-files/files/bin/config_generate
+sed -i "s/hostname='ImmortalWrt'/hostname='Redmi-AX6'/g" package/base-files/files/bin/config_generate
+
+
+# 修改本地时间格式
+sed -i 's/os.date()/os.date("%a %Y-%m-%d %H:%M:%S")/g' package/lean/autocore/files/*/index.htm
+
+# 修改版本为编译日期
+date_version=$(date +"%y.%m.%d")
+orig_version=$(cat "package/lean/default-settings/files/zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')
+sed -i "s/${orig_version}/R${date_version} by Haiibo/g" package/lean/default-settings/files/zzz-default-settings
 
 
 
-
+./scripts/feeds update -a
+./scripts/feeds install -a
