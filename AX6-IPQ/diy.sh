@@ -39,7 +39,7 @@ git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/l
 
 echo >> feeds.conf.default
 echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
-echo 'src-git autotimeset  https://github.com/sirpdboy/luci-app-autotimeset;master' >> feeds.conf.default
+echo 'src-git autotimeset  https://github.com/sirpdboy/luci-app-autotimeset' >> feeds.conf.default
 
 ./scripts/feeds update istore
 ./scripts/feeds install -d y -p istore luci-app-store
