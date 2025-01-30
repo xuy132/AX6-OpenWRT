@@ -51,8 +51,8 @@ echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.defa
 
 
 
-git clone --depth 1 https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
-make menuconfig
+#git clone --depth 1 https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
+#make menuconfig
 
 # iStore
 #git_sparse_clone main https://github.com/linkease/istore-ui app-store-ui
