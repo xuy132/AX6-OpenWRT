@@ -13,7 +13,9 @@ function git_sparse_clone() {
 #rm -rf feeds/packages/net/mosdns
 #rm -rf feeds/luci/applications/luci-app-mosdns
 
-
+#删除库中的插件，使用自定义源中的包。
+rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf feeds/luci/applications/luci-app-argon-config
 
 
 # Add packages
@@ -23,6 +25,7 @@ function git_sparse_clone() {
 
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+
 #git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go package/ddnsgo
 
 # MosDNS
@@ -72,9 +75,7 @@ git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/l
 #rm -rf feeds/luci/applications/luci-app-socat
 #git_sparse_clone main https://github.com/chenmozhijin/luci-app-socat luci-app-socat
 
-#删除库中的插件，使用自定义源中的包。
-rm -rf feeds/luci/themes/luci-theme-argon
-rm -rf feeds/luci/applications/luci-app-argon-config
+
 #rm -rf feeds/luci/applications/luci-app-ddns-go
 #rm -rf feeds/packages/net/ddns-go
 #rm -rf feeds/packages/net/alist
