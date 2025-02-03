@@ -14,8 +14,8 @@ function git_sparse_clone() {
 #rm -rf feeds/luci/applications/luci-app-mosdns
 
 #删除库中的插件，使用自定义源中的包。
-rm -rf feeds/luci/themes/luci-theme-argon
-rm -rf feeds/luci/applications/luci-app-argon-config
+#rm -rf feeds/luci/themes/luci-theme-argon
+#rm -rf feeds/luci/applications/luci-app-argon-config
 
 
 # Add packages
