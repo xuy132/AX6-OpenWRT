@@ -14,8 +14,8 @@ function git_sparse_clone() {
 #rm -rf feeds/luci/applications/luci-app-mosdns
 
 #删除库中的插件，使用自定义源中的包。
-#rm -rf feeds/luci/themes/luci-theme-argon
-#rm -rf feeds/luci/applications/luci-app-argon-config
+rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf feeds/luci/applications/luci-app-argon-config
 
 
 # Add packages
@@ -23,8 +23,8 @@ function git_sparse_clone() {
 #git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
 #git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
-#git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-#git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 
 #git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go package/ddnsgo
 
@@ -40,15 +40,15 @@ function git_sparse_clone() {
 
 # 添加额外插件
 
-#echo >> feeds.conf.default
-#echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
-#echo 'src-git autotimeset  https://github.com/sirpdboy/luci-app-autotimeset' >> feeds.conf.default
+echo >> feeds.conf.default
+echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
+echo 'src-git autotimeset  https://github.com/sirpdboy/luci-app-autotimeset' >> feeds.conf.default
 
-#./scripts/feeds update istore
-#./scripts/feeds install -d y -p istore luci-app-store
+./scripts/feeds update istore
+./scripts/feeds install -d y -p istore luci-app-store
 # 更新feeds，并安装主题：
-#./scripts/feeds update autotimeset
-#./scripts/feeds install luci-app-autotimeset
+./scripts/feeds update autotimeset
+./scripts/feeds install luci-app-autotimeset
 
 
 
@@ -91,12 +91,12 @@ sed -i "s/hostname='ImmortalWrt'/hostname='Redmi-AX6'/g" package/base-files/file
 
 
 # 修改本地时间格式
-sed -i 's/os.date()/os.date("%a %Y-%m-%d %H:%M:%S")/g' package/lean/autocore/files/*/index.htm
+#sed -i 's/os.date()/os.date("%a %Y-%m-%d %H:%M:%S")/g' package/lean/autocore/files/*/index.htm
 
 # 修改版本为编译日期
-date_version=$(date +"%y.%m.%d")
-orig_version=$(cat "package/lean/default-settings/files/zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')
-sed -i "s/${orig_version}/R${date_version} by Haiibo/g" package/lean/default-settings/files/zzz-default-settings
+#date_version=$(date +"%y.%m.%d")
+#orig_version=$(cat "package/lean/default-settings/files/zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')
+#sed -i "s/${orig_version}/R${date_version} by Haiibo/g" package/lean/default-settings/files/zzz-default-settings
 
 
 
