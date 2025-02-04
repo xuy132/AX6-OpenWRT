@@ -1,6 +1,9 @@
 name: Build OpenWRT for AX6-NSS
 
 on:
+  push:
+	branches:
+		- main
   workflow_dispatch:
 
 env:

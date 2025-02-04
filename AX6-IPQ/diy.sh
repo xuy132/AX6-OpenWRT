@@ -22,8 +22,9 @@ git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/l
 
 # Add packages
 #添加科学上网源
-#git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
-#git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
+git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall2 package/openwrt-passwall2
 
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
@@ -48,11 +49,15 @@ echo 'src-git opentopd  https://github.com/sirpdboy/sirpdboy-package' >> feeds.c
 echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
 #echo 'src-git autotimeset  https://github.com/sirpdboy/luci-app-autotimeset' >> feeds.conf.default
 
+./scripts/feeds update -a
+./scripts/feeds install -a
+
+
 ./scripts/feeds update istore
 ./scripts/feeds install -d y -p istore luci-app-store
 # 更新feeds，并安装主题：
-#./scripts/feeds update autotimeset
-#./scripts/feeds install luci-app-autotimeset
+./scripts/feeds update autotimeset
+./scripts/feeds install luci-app-autotimeset
 
 
 
