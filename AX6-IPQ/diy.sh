@@ -10,13 +10,15 @@ function git_sparse_clone() {
 }
 
 # 移除要替换的包
-#rm -rf feeds/packages/net/mosdns
-#rm -rf feeds/luci/applications/luci-app-mosdns
+rm -rf feeds/packages/net/mosdns
+rm -rf feeds/luci/applications/luci-app-mosdns
 
 #删除库中的插件，使用自定义源中的包。
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/applications/luci-app-argon-config
+rm -rf feeds/packages/lang/golang
 
+git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
 
 # Add packages
 #添加科学上网源
@@ -29,7 +31,7 @@ git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/l
 #git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go package/ddnsgo
 
 # MosDNS
-#git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
+git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
 
 #git clone --depth 1 https://github.com/sbwml/luci-app-alist package/alist
 #git clone --depth=1  https://github.com/kenzok8/small-package package/small-package
@@ -41,6 +43,8 @@ git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/l
 # 添加额外插件
 
 echo >> feeds.conf.default
+
+echo 'src-git opentopd  https://github.com/sirpdboy/sirpdboy-package' >> feeds.conf.default
 echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
 #echo 'src-git autotimeset  https://github.com/sirpdboy/luci-app-autotimeset' >> feeds.conf.default
 
@@ -54,8 +58,8 @@ echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.defa
 
 
 
-git clone --depth 1 https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
-make menuconfig
+#git clone --depth 1 https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
+#make menuconfig
 
 # iStore
 #git_sparse_clone main https://github.com/linkease/istore-ui app-store-ui
