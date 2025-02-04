@@ -17,6 +17,9 @@ rm -rf feeds/luci/applications/luci-app-mosdns
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/applications/luci-app-argon-config
 rm -rf feeds/packages/lang/golang
+rm -rf feeds/package/openwrt-passwall-packages
+rm -rf feeds/package/openwrt-passwall
+rm -rf feeds/package/openwrt-passwall2
 
 git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
 
