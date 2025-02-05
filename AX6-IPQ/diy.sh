@@ -53,7 +53,7 @@ echo 'src-git opentopd  https://github.com/sirpdboy/sirpdboy-package' >> feeds.c
 echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
 #echo 'src-git autotimeset  https://github.com/sirpdboy/luci-app-autotimeset' >> feeds.conf.default
 
-echo 'src-git upnp https://github.com/badcrazy/luci-app-upnp;main' >> feeds.conf.default
+echo 'src-git upnpt https://github.com/badcrazy/luci-app-upnp' >> feeds.conf.default
 
 #./scripts/feeds update -a
 #./scripts/feeds install -a
@@ -66,7 +66,7 @@ echo 'src-git upnp https://github.com/badcrazy/luci-app-upnp;main' >> feeds.conf
 ./scripts/feeds install -d y -p opentopd luci-app-autotimeset
 ./scripts/feeds install -d y -p opentopd luci-app-wolplus
 ./scripts/feeds update upnp
-./scripts/feeds install -d y -p upnp luci-app-upnp
+./scripts/feeds install -d y -p upnpt luci-app-upnp
 
 
 #git clone --depth 1 https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
