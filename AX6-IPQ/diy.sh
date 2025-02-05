@@ -65,6 +65,10 @@ echo 'src-git upnpt https://github.com/badcrazy/luci-app-upnp' >> feeds.conf.def
 ./scripts/feeds update opentopd
 ./scripts/feeds install -d y -p opentopd luci-app-autotimeset
 ./scripts/feeds install -d y -p opentopd luci-app-wolplus
+
+
+rm -rf feeds/opentopd/upnpd/luci-app-upnp
+
 ./scripts/feeds update upnp
 ./scripts/feeds install -d y -p upnpt luci-app-upnp
 
