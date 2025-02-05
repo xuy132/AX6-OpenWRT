@@ -68,8 +68,8 @@ echo 'src-git upnpt https://github.com/badcrazy/luci-app-upnp' >> feeds.conf.def
 
 
 rm -rf feeds/opentopd/upnpd/luci-app-upnp
-
-./scripts/feeds update upnp
+rm -rf feeds/luci/applications/luci-app-upnp
+./scripts/feeds update upnpt
 ./scripts/feeds install -d y -p upnpt luci-app-upnp
 
 
