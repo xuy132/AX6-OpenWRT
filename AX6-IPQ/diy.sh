@@ -52,8 +52,8 @@ echo 'src-git opentopd  https://github.com/sirpdboy/sirpdboy-package' >> feeds.c
 echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
 #echo 'src-git autotimeset  https://github.com/sirpdboy/luci-app-autotimeset' >> feeds.conf.default
 
-./scripts/feeds update -a
-./scripts/feeds install -a
+#./scripts/feeds update -a
+#./scripts/feeds install -a
 
 
 ./scripts/feeds update istore
@@ -61,8 +61,8 @@ echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.defa
 # 更新feeds，并安装主题：
 ./scripts/feeds update autotimeset
 ./scripts/feeds install luci-app-autotimeset
-
-
+./scripts/feeds update luci-app-wolplus
+./scripts/feeds install luci-app-wolplus
 
 
 
