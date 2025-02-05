@@ -20,6 +20,7 @@ rm -rf feeds/packages/lang/golang
 rm -rf feeds/package/openwrt-passwall-packages
 rm -rf feeds/package/openwrt-passwall
 rm -rf feeds/package/openwrt-passwall2
+rm -rf feeds/luci/applications/luci-app-upnp
 
 git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
 
@@ -52,6 +53,8 @@ echo 'src-git opentopd  https://github.com/sirpdboy/sirpdboy-package' >> feeds.c
 echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
 #echo 'src-git autotimeset  https://github.com/sirpdboy/luci-app-autotimeset' >> feeds.conf.default
 
+echo 'src-git upnp https://github.com/badcrazy/luci-app-upnp;main' >> feeds.conf.default
+
 #./scripts/feeds update -a
 #./scripts/feeds install -a
 
@@ -61,9 +64,9 @@ echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.defa
 # 更新feeds，并安装主题：
 ./scripts/feeds update opentopd
 ./scripts/feeds install -d y -p opentopd luci-app-autotimeset
-
 ./scripts/feeds install -d y -p opentopd luci-app-wolplus
-
+./scripts/feeds update upnp
+./scripts/feeds install -d y -p upnp luci-app-upnp
 
 
 #git clone --depth 1 https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
