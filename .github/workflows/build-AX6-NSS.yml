@@ -1,7 +1,6 @@
 name: Build OpenWRT for AX6-NSS
 
-on:
-  push:
+on: push
 
   workflow_dispatch:
 

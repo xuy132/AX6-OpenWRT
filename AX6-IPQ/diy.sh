@@ -59,10 +59,10 @@ echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.defa
 ./scripts/feeds update istore
 ./scripts/feeds install -d y -p istore luci-app-store
 # 更新feeds，并安装主题：
-./scripts/feeds update autotimeset
-./scripts/feeds install luci-app-autotimeset
-./scripts/feeds update luci-app-wolplus
-./scripts/feeds install luci-app-wolplus
+./scripts/feeds update opentopd
+./scripts/feeds install -d y -p opentopd luci-app-autotimeset
+
+./scripts/feeds install -d y -p opentopd luci-app-wolplus
 
 
 
