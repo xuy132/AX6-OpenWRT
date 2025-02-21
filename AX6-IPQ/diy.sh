@@ -21,6 +21,7 @@ rm -rf feeds/package/openwrt-passwall-packages
 rm -rf feeds/package/openwrt-passwall
 rm -rf feeds/package/openwrt-passwall2
 rm -rf feeds/luci/applications/luci-app-upnp
+rm -rf feeds/luci/applications/luci-app-passwall2
 
 git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
 
@@ -54,6 +55,7 @@ echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.defa
 #echo 'src-git autotimeset  https://github.com/sirpdboy/luci-app-autotimeset' >> feeds.conf.default
 
 echo 'src-git upnpt https://github.com/badcrazy/luci-app-upnp' >> feeds.conf.default
+echo "src-git nikki https://github.com/nikkinikki-org/OpenWrt-nikki.git;main" >> "feeds.conf.default"
 
 #./scripts/feeds update -a
 #./scripts/feeds install -a
@@ -65,12 +67,13 @@ echo 'src-git upnpt https://github.com/badcrazy/luci-app-upnp' >> feeds.conf.def
 ./scripts/feeds update opentopd
 ./scripts/feeds install -d y -p opentopd luci-app-autotimeset
 ./scripts/feeds install -d y -p opentopd luci-app-wolplus
+./scripts/feeds update nikki
+./scripts/feeds install -d y -p opentopd luci-app-nikki
 
-
-rm -rf feeds/opentopd/upnpd/luci-app-upnp
-rm -rf feeds/luci/applications/luci-app-upnp
-./scripts/feeds update upnpt
-./scripts/feeds install -d y -p upnpt luci-app-upnp
+#rm -rf feeds/opentopd/upnpd/luci-app-upnp
+#rm -rf feeds/luci/applications/luci-app-upnp
+#./scripts/feeds update upnpt
+#./scripts/feeds install -d y -p upnpt luci-app-upnp
 
 
 #git clone --depth 1 https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
